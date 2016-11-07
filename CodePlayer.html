@@ -1,0 +1,142 @@
+<html>
+
+    <head>
+        <title>UI</title>
+        
+        <!-- for css-->
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+        
+        <!-- For java-->
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script src="jquery-ui/jquery-ui.js"></script>
+        
+        <style type="text/css">
+        
+            
+            body {
+                font-family: sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+            #header{
+                width: 100%;
+                background-color: #EEEEEE;
+                padding: 5px;
+                height: 33px;
+                
+            }
+            #buttonContainer{
+                width: 250px;
+                margin: 0 auto;
+            } 
+        
+            
+            #logo{
+                float: left;
+                font-weight: bold;
+                font-size: 120%;
+                padding: 3px 5px;
+            }
+            
+            
+            .toggleButton{
+                float: left;
+                border: 1px solid grey;
+                padding: 6px;
+                border-right: none;
+            }
+            
+            #html {
+                
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                
+                
+            }
+            
+            #output{
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                border-right: 1px solid grey;
+            }
+            
+            
+            
+            .active {
+                background-color: #E8f2ff;
+            }
+            
+            .highlightedButton{
+                background-color: grey;
+            }
+            
+            textarea{
+                height: 100%;
+                width: 50%;
+                resize: none;
+            }
+            
+            .panel{
+                float: left;
+                width: 50%;
+            }
+            
+        </style>
+        
+        
+        
+    </head>
+
+    <body>
+        
+        <div id="header">
+            <div id="logo">
+                CodePlayer
+            </div>
+            
+            <div id = "buttonContainer">
+                
+                <!--Button for html -->
+                <div class = "toggleButton active" id="html">HTML</div>
+                <!-- Button fot CSS -->
+                <div class="toggleButton " id="css">CSS</div>
+                <!-- Button for javascript -->
+                <div class="toggleButton " id="javascript">Javascript</div>
+                <!-- button for Output -->
+                <div class="toggleButton active" id="output">Output</div>
+            </div>
+            
+            
+        </div>
+        
+        <div id="bodyContainer">
+            
+            <textarea id="htmlPanel" class="panel">Hello World</textarea>
+            <iframe id="outputPanel" class="panel"></iframe>
+        </div>
+        
+    
+        <script type = "text/javascript">
+            
+            $(".toggleButton").hover(function() {
+                
+                $(this).addClass("highlightedButton");
+                
+            }, function(){
+                $(this).removeClass("highlightedButton")
+            }); 
+            $(".toggleButton").click(function(){
+                   
+                $(this).toggleClass("active");
+                $(this).removeClass("highlightedButton");
+            
+                
+            });
+            $(".panel").height($(window).height() - $("#header").height );
+            
+            $(".panel").width(($(window).width()/2)-15);
+                                
+        </script>       
+        
+    </body>
+</html>
